@@ -61,10 +61,7 @@ A common issue that I've run into is that when having sounds play, they may be c
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+[Thomas Bu](https://github.com/typingthomas)
 
 ## Version History
 
@@ -77,6 +74,5 @@ This project is licensed under the [MIT] License - see the LICENSE.md file for d
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [InsightFace](https://github.com/matiassingers/awesome-readme)
+* [InsightFace](https://github.com/deepinsight/insightface)
 

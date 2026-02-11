@@ -35,7 +35,7 @@ pip install whodis
 ### Setup
 
 1. Before running it is required to 'enroll' a folder with photos of a whitelisted person for the program to actually be able to identify someone
-* folders with ~7 photos(.jpg, .jpeg, .png) with differnt angles provide the best reference to performance ratio for the program
+* folders with ~7 photos(.jpg, .jpeg, .png) with different angles provide the best reference to performance ratio for the program
 * if you would like a specific .mp3 to be played when the face is recognized you can add that into the folder aswell
 ```
 whodis -e path/to/folder
@@ -44,6 +44,7 @@ whodis -e path/to/folder
 ```
 whodis --unknown-sound path/to/.mp3
 ```
+> **Warning:** There is currently no support for mutiple camera, devices. Program will run and defualt to one camera.
 ### Executing program
 * To run the program it's simple
 ```
@@ -57,6 +58,7 @@ whodis -h
 ```
 ### Common Issues
 * Sound
+
 A common issue that I've run into is that when having sounds play, they may be cut short. This is because when the program detects a new face it will start analyzing the embedding to see who it is, this process interupts any media being played through the program. This typically will happen when the .mp3 is longer then 5 seconds, to negate this I recommend having a short .mp3 being played. To update a .mp3 run the '-e' or '--unknown-sound' flag again and the new .mp3 will be saved
 
 ## Authors

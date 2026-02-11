@@ -1,20 +1,15 @@
-import cv2
 import numpy as np
-import insightface
-from insightface.app import FaceAnalysis
-from insightface.data import get_image as ins_get_image
 import subprocess
 import os
 import pickle
 from pickle import load
 from rich.console import Console
-import datetime
-import time
-import argparse
 import vlc
 from pathlib import Path
-from . import pathmake
 import threading
+import time
+from . import pathmake
+
 
 console = Console()
 last_chime_time = 0
@@ -72,7 +67,7 @@ def process_file(embedding):
                     knownembed = pickle.load(f)
                 if match_embedding(embedding, knownembed, folder, threshold=0.5) == True:
                     play_chime(folderpath)
-                    console.print(f"[green]Face recognized: {folder}")
+                    console.print(f"[green bold]Face recognized: {folder}")
                     recognized = True
                     return True, os.path.basename(folder), folderpath
                 else:

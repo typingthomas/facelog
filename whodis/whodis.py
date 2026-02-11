@@ -1,22 +1,14 @@
 from pathlib import Path
 import os
 import sys
-import cv2
-import numpy as np
-import insightface
-from insightface.app import FaceAnalysis
-from insightface.data import get_image as ins_get_image
-import subprocess
-import os
-import pickle
-from rich.console import Console
-import datetime
-import time
+from rich.console import Console 
 import argparse
+import shutil
+import threading
 from . import analyze
 from . import watch
 from . import pathmake
-import shutil
+from . import webserver
 
 def main():
         console = Console()
@@ -36,10 +28,14 @@ def main():
         )
         parser.add_argument(
             "--unknown-sound",
-             metavar="MP3",
+             metavar="path/to/.mp3",
              help="Set sound to play when an unknown face is detected"
          )
-
+        parser.add_argument(
+             "--web",
+             action="store_true",
+             help="Start a simple web dashboard to see detected faces"
+         )
         
         args = parser.parse_args()
         
@@ -67,7 +63,13 @@ def main():
             shutil.copy(args.unknown_sound, os.path.join(pathmake.unknownpath, 'unknown.mp3'))
             exit()
 
-
+        if args.web:
+            web_thread = threading.Thread(
+                target=webserver.start_webserver,
+                kwargs={"host": "0.0.0.0", "port": 5000},
+                daemon=True
+            ).start()
+            
 
         console.print("Checking program files..")
         pathmake.makefiles()
@@ -75,7 +77,6 @@ def main():
         if len(os.listdir(pathmake.embedpath)) < 1:
                 console.print(f"[red bold]Warning[/red bold] [red]No photos have been enrolled in the {pathmake.embedpath} folder\nNo faces will be identified, see 'whodis -h'")
         watch.openwebcam(pathmake.capturepath)
-        
         
 
 if __name__ == "__main__":

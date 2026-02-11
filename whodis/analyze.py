@@ -1,9 +1,5 @@
 import cv2
 import numpy as np
-import insightface
-from insightface.app import FaceAnalysis
-from insightface.data import get_image as ins_get_image
-import subprocess
 import os
 import pickle
 from rich.console import Console
@@ -15,9 +11,6 @@ console = Console()
 accepted_formats = ['.jpg', '.jpeg', '.png', '.mp3'] # mp3 for greeting only
 
 def analyze(path, savepath):
-        #app = FaceAnalysis(providers=['CPUExecutionProvider'], name="buffalo_l")
-        #app.prepare(ctx_id=0, det_size=(640, 640))
-
         app = pathmake.init_face_app()
         name = Path(path).name
         identitypath = os.path.join(savepath, name)
@@ -30,22 +23,30 @@ def analyze(path, savepath):
         else:
             db = {}
         db.setdefault(name, [])
-
-        #loop through the whitlisted folder grabbing embedding from each face then making a .pkl of the data
         for file in os.listdir(path):
-            if Path(file).suffix.lower() not in accepted_formats:
-                console.print(f'[red]{file} --format is not accepted, skipping file...')
+            full_path = os.path.join(path, file)
+            ext = Path(file).suffix.lower()
+            if ext not in accepted_formats:
+                console.print(f"[red]{file} -- format not accepted, skipping...")
                 continue
-            if ".mp3" in file:
-                shutil.copy(os.path.join(path, file), os.path.join(identitypath, 'greet.mp3'))
-                console.print(f'[yellow bold]Adding {file} as greeting...')
+            if ext == ".mp3":
+                shutil.copy(full_path, os.path.join(identitypath, "greet.mp3"))
+                console.print(f"[yellow bold]Added {file} as greeting")
                 continue
-            namenoext = os.path.abspath(os.path.join(path,file[0:file.index(".")]))
-            img = ins_get_image(os.path.join(path, namenoext))
+            img = cv2.imread(full_path)
+            if img is None:
+                console.print(f"[red]Failed to load {file}, skipping...")
+                continue
+            # Detect faces
             faces = app.get(img)
+            if not faces:
+                console.print(f"[yellow]No face detected in {file}")
+                continue
             faces = sorted(faces, key=lambda f: f.det_score, reverse=True)
             embedding = faces[0].embedding
+
             db[name].append(embedding)
+            console.print(f"[green]Embedding stored for {file}")
 
         with open(embedpath, "wb") as f:
             pickle.dump(db, f)

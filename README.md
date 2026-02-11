@@ -1,10 +1,16 @@
 # WhoDis?
 
-This is a lightweight live, local, facial recognition program that can run on Windows or Linux designed to identify known individuals in real time using a standard webcam.
+WhoDis is a lightweight, offline facial recognition system built in Python. It uses InsightFace and OpenCV to identify known individuals in real time through a standard webcam. Designed to run on modest hardware, WhoDis is suitable for local security monitoring or home lab deployments.
 
 ## Description
 
-I've written this project completley in python and have utilized the InsightFace library for facial recognition model and OpenCV + NumPy to help me gather the embeddings live and identify faces on the spot, it's able to run completley offline once configured and works well with old hardware and webcams that you might have laying around, however the better quality your webcam/camera is the better the performance will be. I've tried to write the code as simple as I could as to make it easy for users to modify it to their own needs.
+I've written this project completely in python and have utilized the InsightFace library for facial recognition model and OpenCV + NumPy to help me gather the embeddings live and identify faces on the spot, it's able to run completely offline once configured and works well with old hardware and webcams that you might have laying around, however the better quality your webcam/camera is the better the performance will be. I've tried to write the code as simple as I could as to make it easy for users to modify it to their own needs.
+
+### How it works
+1. Uses OpenCV to get live video output
+2. Every 100 frames, the frame is analyzed using InsightFace's buffalo_l model for live embedding extraction
+3. Those live embeddings are then compared with stored embeddings of known individuals using cosine similiarity
+4. Optionally serves a Flash-based live detection dashboard aswell as plays a custom audio greeting
 
 ## Getting Started
 
@@ -29,7 +35,7 @@ git clone https://github.com/typingthomas/WhoDis
 ```
 3. Inside the new folder install with pip
 ```
-pip install whodis
+pip install .
 ```
 
 ### Setup
@@ -45,13 +51,13 @@ whodis -e path/to/folder
 whodis --unknown-sound path/to/.mp3
 ```
 > [!NOTE]  
-> There is currently no support for mutiple camera, devices. Program will run and defualt to one camera.
+> There is currently no support for multiple camera devices. Program will run and default to one camera.
 ### Executing program
 * To run the program it's simple
 ```
 whodis
 ```
-* You can also start a webserver alongside the program to display captured faced and their identity
+* You can also start a webserver alongside the program to display captured faces and their identity
 ```
 whodis --web
 ```
@@ -64,7 +70,7 @@ whodis -h
 ### Common Issues
 * Sound
 
-A common issue that I've run into is that when having sounds play, they may be cut short. This is because when the program detects a new face it will start analyzing the embedding to see who it is, this process interupts any media being played through the program. This typically will happen when the .mp3 is longer then 5 seconds, to negate this I recommend having a short .mp3 being played. To update a .mp3 run the '-e' or '--unknown-sound' flag again and the new .mp3 will be saved
+A common issue that I've run into is that when having sounds play, they may be cut short. This is because when the program detects a new face it will start analyzing the embedding to see who it is, this process interrupts any media being played through the program. This typically will happen when the .mp3 is longer than 5 seconds, to negate this I recommend having a short .mp3 being played. To update a .mp3 run the '-e' or '--unknown-sound' flag again and the new .mp3 will be saved
 
 ## Authors
 

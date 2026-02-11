@@ -44,11 +44,16 @@ whodis -e path/to/folder
 ```
 whodis --unknown-sound path/to/.mp3
 ```
-> **Warning:** There is currently no support for mutiple camera, devices. Program will run and defualt to one camera.
+> [!NOTE]  
+> There is currently no support for mutiple camera, devices. Program will run and defualt to one camera.
 ### Executing program
 * To run the program it's simple
 ```
 whodis
+```
+* You can also start a webserver alongside the program to display captured faced and their identity
+```
+whodis --web
 ```
 * To quit the program just do Ctrl+C and all the captured faces will be saved
 

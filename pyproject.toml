@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-whodis = "whodis.whodis:main"
+facelog = "facelog.facelog:main"
 
 [project]
-name = "whodis"
+name = "facelog"
 version = "2026.1.0"
-description = "Live face recognition system with optional chimes that can be used as a PhysicalIds for you homelab!"
+description = "Live face recognition system with optional chimes that can be used as a PhysicalIDS for your homelab!"
 readme = "README.md"
 requires-python = ">=3.11, <3.12"
 authors = [{name="Thomas Bu"}]

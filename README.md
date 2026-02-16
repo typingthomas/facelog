@@ -1,6 +1,6 @@
-# WhoDis?
+# facelog?
 
-WhoDis is a lightweight, offline facial recognition system built in Python. It uses InsightFace and OpenCV to identify known individuals in real time through a standard webcam. Designed to run on modest hardware, WhoDis is suitable for local security monitoring or home lab deployments.
+facelog is a lightweight, offline facial recognition system built in Python. It uses InsightFace and OpenCV to identify known individuals in real time through a standard webcam. Designed to run on modest hardware, facelog is suitable for local security monitoring or home lab deployments.
 
 ## Description
 
@@ -31,7 +31,7 @@ apt install vlc
 ```
 2. Clone this repo
 ```
-git clone https://github.com/typingthomas/WhoDis
+git clone https://github.com/typingthomas/facelog
 ```
 3. Inside the new folder install with pip
 ```
@@ -44,28 +44,28 @@ pip install .
 * folders with ~7 photos(.jpg, .jpeg, .png) with different angles provide the best reference to performance ratio for the program
 * if you would like a specific .mp3 to be played when the face is recognized you can add that into the folder aswell
 ```
-whodis -e path/to/folder
+facelog -e path/to/folder
 ```
 2. If you would like a specific .mp3 to be played when the program can't recognize a face you can do that aswell!
 ```
-whodis --unknown-sound path/to/.mp3
+facelog --unknown-sound path/to/.mp3
 ```
 > [!NOTE]  
 > There is currently no support for multiple camera devices. Program will run and default to one camera.
 ### Executing program
 * To run the program it's simple
 ```
-whodis
+facelog
 ```
 * You can also start a webserver alongside the program to display captured faces and their identity
 ```
-whodis --web
+facelog --web
 ```
 * To quit the program just do Ctrl+C and all the captured faces will be saved
 
 ## Help
 ```
-whodis -h
+facelog -h
 ```
 ### Common Issues
 * Sound

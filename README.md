@@ -10,7 +10,7 @@ I've written this project completely in python and have utilized the InsightFace
 1. Uses OpenCV to get live video output
 2. Every 100 frames, the frame is analyzed using InsightFace's buffalo_l model for live embedding extraction
 3. Those live embeddings are then compared with stored embeddings of known individuals using cosine similiarity
-4. Optionally serves a Flash-based live detection dashboard aswell as plays a custom audio greeting
+4. Optionally serves a Flask-based live detection dashboard aswell as plays a custom audio greeting
 
 ## Getting Started
 

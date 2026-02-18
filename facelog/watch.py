@@ -30,7 +30,6 @@ def openwebcam(savepath):
                             embedding = faces[0].embedding
                             console.print("[yellow bold]FACE DETECTED")
                             matched, folder, folderpath = compare.process_file(embedding)
-                            print(matched)
                             if matched == False:
                                 detected = os.path.join(savepath, f"Unknown-{frame_count}-{currenttime}.jpg")
                             else:

@@ -53,7 +53,7 @@ def match_embedding(live_emb, whitelist,foldername, threshold=0.5):
     best_sim = float(np.max(sims))
     mean_sim = float(np.mean(sims))
 
-    print(f"best={best_sim:.3f} mean={mean_sim:.3f}")
+    print(f"{foldername}:best={best_sim:.3f} mean={mean_sim:.3f}")
 
     return best_sim >= threshold
 def process_file(embedding):

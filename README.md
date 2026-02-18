@@ -2,8 +2,10 @@
 
 facelog is a lightweight, offline facial recognition system built in Python. It uses InsightFace and OpenCV to identify known individuals in real time through a standard webcam. Designed to run on modest hardware, facelog is suitable for local security monitoring or home lab deployments.
 
+### Detecting know individual
 ![Recognized](docs/recognized.png)
 
+### Detecting unknown individual
 ![Unknown](docs/unknown.png)
 
 ## Description

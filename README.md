@@ -1,8 +1,8 @@
-# facelog?
+# facelog
 
 facelog is a lightweight, offline facial recognition system built in Python. It uses InsightFace and OpenCV to identify known individuals in real time through a standard webcam. Designed to run on modest hardware, facelog is suitable for local security monitoring or home lab deployments.
 
-### Detecting know individual
+### Detecting known individual
 ![Recognized](docs/recognized.png)
 
 ### Detecting unknown individual
@@ -10,13 +10,13 @@ facelog is a lightweight, offline facial recognition system built in Python. It 
 
 ## Description
 
-I've written this project completely in python and have utilized the InsightFace library for facial recognition model and OpenCV + NumPy to help me gather the embeddings live and identify faces on the spot, it's able to run completely offline once configured and works well with old hardware and webcams that you might have laying around, however the better quality your webcam/camera is the better the performance will be. I've tried to write the code as simple as I could as to make it easy for users to modify it to their own needs.
+I've written this project completely in python and have utilized the InsightFace library for facial recognition model and OpenCV + NumPy to help me gather the embeddings live and identify faces on the spot, it's able to run completely offline once configured and works well with old hardware and webcams that you might have laying around, however the better quality your webcam/camera is the better the performance will be. The codebase is intentionally kept modular and readable to allow easy customization to fit your needs.
 
 ### How it works
 1. Uses OpenCV to get live video output
 2. Every 100 frames, the frame is analyzed using InsightFace's buffalo_l model for live embedding extraction
-3. Those live embeddings are then compared with stored embeddings of known individuals using cosine similiarity
-4. Optionally serves a Flash-based live detection dashboard aswell as plays a custom audio greeting
+3. Those live embeddings are then compared with stored embeddings of known individuals using cosine similarity
+4. Optionally serves a Flask-based live detection dashboard aswell as plays a custom audio greeting
 
 ## Getting Started
 

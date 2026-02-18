@@ -17,9 +17,10 @@ I've written this project completely in python and have utilized the InsightFace
 ### Dependencies
 
 * Python 3.11.x
-* Webcam/Camera
+* Pip
 * Vlc Media Player
-
+* Visual Studio C++ build tools(Windows)
+* Webcam/Camera
 ### Installing
 1. Install VLC Media Player
 Windows:

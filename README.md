@@ -25,7 +25,6 @@ I've written this project completely in python and have utilized the InsightFace
 * Python 3.11.x
 * Webcam/Camera
 * Vlc Media Player
-* Microsoft C++ Build Tools(if on windows)
 
 ### Installing
 1. Install VLC Media Player

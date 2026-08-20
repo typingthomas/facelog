@@ -80,6 +80,7 @@ facelog -h
 A common issue that I've run into is that when having sounds play, they may be cut short. This is because when the program detects a new face it will start analyzing the embedding to see who it is, this process interrupts any media being played through the program. This typically will happen when the .mp3 is longer than 5 seconds, to negate this I recommend having a short .mp3 being played. To update a .mp3 run the '-e' or '--unknown-sound' flag again and the new .mp3 will be saved
 
 * Pip not installing on windows
+  
 You may have to install Microsoft C++ Build tools as it does not include these tools by default try running
 ```
 winget install --id Microsoft.VisualStudio.2022.BuildTools --source winget

@@ -41,10 +41,14 @@ apt install vlc
 git clone https://github.com/typingthomas/facelog
 ```
 3. Inside the new folder install with pip
+* Linux
 ```
 pip install .
 ```
-
+* Windows
+```
+pip install .\dist\facelog-2026.1.0-py3-none-any.whl
+```
 ### Setup
 
 1. Before running it is required to 'enroll' a folder with photos of a whitelisted person for the program to actually be able to identify someone

@@ -89,6 +89,7 @@ You may have to install Microsoft C++ Build tools as it does not include these t
 ```
 winget install --id Microsoft.VisualStudio.2022.BuildTools --source winget
 ```
+Or install the .whl from the dist folder
 ## Authors
 
 [Thomas Bu](https://github.com/typingthomas)

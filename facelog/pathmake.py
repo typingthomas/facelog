@@ -46,6 +46,8 @@ def save_log():
 def get_app_data_dir(app_name="facelog"):
     if sys.platform.startswith("win"):
         base = Path(os.getenv("APPDATA"))
+    elif sys.platform == "darwin":
+        base = Path.home() / "Library" / "Application Support"
     else:
         # Linux / BSD / WSL
         base = Path(os.getenv("XDG_DATA_HOME", Path.home() / ".local" / "share"))
